@@ -11,14 +11,20 @@
   "scripts": {
     "deploy": "gcloud app deploy",
     "start": "node app.js",
+    "server": "nodemon index.js",
     "lint": "repo-tools lint",
     "pretest": "npm run lint",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
     "e2e-test": "repo-tools test deploy"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "concurrently": "^3.5.1",
+    "create-react-app": "^2.0.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.2"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "^2.3.0",
